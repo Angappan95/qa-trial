@@ -1,6 +1,14 @@
 package demo;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.Select;
+
 
 public class FindNumberOfBuses {
 
@@ -8,15 +16,13 @@ public class FindNumberOfBuses {
     System.out.println("Entering in FindNumberOfBuses");
   }
 
-  public static void runRedbusTest() throws InterruptedException {
+  public static void runRedbusTest() throws InterruptedException, MalformedURLException {
     //Starting Point of Execution
     System.out.println("Entering main() in FindNumberOfBuses");
 
     final DesiredCapabilities capabilities = new DesiredCapabilities();
     capabilities.setBrowserName(BrowserType.CHROME);
-    RemoteWebDriver driver = null;
-
-    driver = new RemoteWebDriver(new URL("http://localhost:8082/wd/hub"), capabilities);
+    RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:8082/wd/hub"), capabilities);
 
     //Launch Chrome Browser
     //    WebDriverManager.chromedriver().timeout(30).setup();

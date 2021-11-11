@@ -12,6 +12,6 @@ public class App {
     }
 
     public static void main(String[] args) throws InterruptedException, MalformedURLException {
-        System.out.println(new App().getGreeting());
+        new App().getGreeting();
     }
 }
