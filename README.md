@@ -26,5 +26,3 @@ chmod +x selenium-run.sh
 ./gradlew run
 
 ```
-
-
