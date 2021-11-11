@@ -18,7 +18,7 @@ public class FindNumberOfBuses {
 
   public static void runRedbusTest() throws InterruptedException, MalformedURLException {
     //Starting Point of Execution
-    System.out.println("Entering main() in FindNumberOfBuses");
+    System.out.println("Entering in FindNumberOfBuses");
 
     final DesiredCapabilities capabilities = new DesiredCapabilities();
     capabilities.setBrowserName(BrowserType.CHROME);
