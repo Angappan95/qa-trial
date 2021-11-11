@@ -1,5 +1,4 @@
 
-
 Steps to run the selenium test
 
 1. Run the selenium-setup.sh script
@@ -17,7 +16,7 @@ chmod +x selenium-run.sh
 
 3. Open the zalenium console to view the selenium test
    
-   Url ->  $WORKSPACE_URL/8082/grid/admin/live
+   Url ->  $WORKSPACE_URL:8082/grid/admin/live
     
 4. Build and run the gradle
 
