@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.Select;
 
 public class FindNumberOfBuses {
 
@@ -64,9 +63,8 @@ public class FindNumberOfBuses {
 
     // Click on the fare column to sort it by fare
     // Get the Minimum Fare Details and print it
-    driver.findElementByXPath("//a[text()='Fare']").click();   
-    String minFare = driver.findElementByXPath("//*[@id=\"5177883\"]/div/div[1]/div[1]/div[7]/div/div[2]/span").getText();
+    driver.findElementByXPath("//a[text()='Fare']").click();
+    String minFare = driver.findElementByXPath("//span[@class='f-19 f-bold']").getText();
     System.out.println(minFare + " USD is the minimum fare");
-
   }
 }
