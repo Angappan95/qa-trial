@@ -9,63 +9,65 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-
 public class FindNumberOfBuses {
 
   public void main(String[] args) throws InterruptedException {
-    System.out.println("Entering in FindNumberOfBuses");
+
   }
 
   public static void runRedbusTest() throws InterruptedException, MalformedURLException {
     //Starting Point of Execution
-    System.out.println("Entering in FindNumberOfBuses");
+    System.out.println("Entering FindNumberOfBuses");
 
+    //Launch Chrome Browser using Zalenium
     final DesiredCapabilities capabilities = new DesiredCapabilities();
     capabilities.setBrowserName(BrowserType.CHROME);
     RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:8082/wd/hub"), capabilities);
 
-    //Launch Chrome Browser
-    //    WebDriverManager.chromedriver().timeout(30).setup();
-    //    ChromeDriver driver = new ChromeDriver();
-
-    //maximize and Implicit Wait
+    //Maximize and Implicit Wait for things to initailize
     driver.manage().window().maximize();
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-    //Launching the URL and maximize
+    //Launch the URL and maximize
     driver.get("https://www.redbus.com/");
 
-    Thread.sleep(10000);
+    // Wait 5 seconds for site to get loaded
+    Thread.sleep(5000);
 
-    //Entering Source City
+    // Find the element where Source city is to be entered, 
+    // populate the city name and select it from the drop down that comes up
     driver.findElementById("src").clear();
-    driver.findElementById("src").sendKeys("Bangalore");
-    driver.findElementByXPath("//*[@id='search']/div/div[1]/div/ul/li[1]").click();
+    driver.findElementById("src").sendKeys("London");
+    driver.findElementByXPath("//*[@id='search']/div/div[1]/div/ul/li[1]/i").click();
 
-    //Entering Destination City
+    // Find the element where Destination city is to be entered, 
+    // populate the city name and select it from the drop down that comes up
     driver.findElementById("dest").clear();
-    driver.findElementById("dest").sendKeys("Hyderabad");
+    driver.findElementById("dest").sendKeys("Birmingham");
     driver.findElementByXPath("//*[@id='search']/div/div[2]/div/ul/li[1]").click();
 
+    // Find the element where date needs to be entered,
+    // select current date from the calendar that comes up 
     driver.findElementByXPath("//*[@id=\"search\"]/div/div[3]/div/label").click();
-    //driver.findElementByXPath("//*[@id=\"rb-calendar_onward_cal\"]/table/tbody/tr[4]/td[4]").click();
     driver.findElementByXPath("(//td[@class='current day'])[2]").click();
 
     Thread.sleep(300);
-    //Click Search
+    // Find the locator of the search button and Click on it
     driver.findElementById("search_btn").click();
 
-    //Incase network is slow
+    // Sleep for 4 seconds. Needed in case network is slow
     Thread.sleep(4000);
 
-    //Get Minimum Fare Details
-    String minFareDetails = driver.findElementByClassName("fr-strts-frm").getText();
-    System.out.println(minFareDetails);
-
-    //Get Minimum Fare Details
+    // Get Number of Buses from the resultant screen and print it
     String numberOfBuses = driver.findElementByXPath("//span[text()='Buses']").getText();
-    System.out.println(numberOfBuses);
+    System.out.println("Number of buses is "  + numberOfBuses);
+
+    // Click on the fare column to sort it by fare
+    // Get the Minimum Fare Details and print it
+    driver.findElementByXPath("//a[text()='Fare']").click();
+    //driver.findElementByXPath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div[6]/a").click(); // This is the alternate locator
+		String minFare = driver.findElementByXPath("//*[@id=\"5177883\"]/div/div[1]/div[1]/div[7]/div/div[2]/span").getText();
+    System.out.println(minFare + " USD is the minimum fare");
+
   }
-
 }
-
