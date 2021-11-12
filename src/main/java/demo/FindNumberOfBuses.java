@@ -65,8 +65,7 @@ public class FindNumberOfBuses {
     // Click on the fare column to sort it by fare
     // Get the Minimum Fare Details and print it
     driver.findElementByXPath("//a[text()='Fare']").click();   
-    //driver.findElementByXPath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div[6]/a").click(); // This is the alternate locator
-		String minFare = driver.findElementByXPath("//*[@id=\"5177883\"]/div/div[1]/div[1]/div[7]/div/div[2]/span").getText();
+    String minFare = driver.findElementByXPath("//*[@id=\"5177883\"]/div/div[1]/div[1]/div[7]/div/div[2]/span").getText();
     System.out.println(minFare + " USD is the minimum fare");
 
   }
