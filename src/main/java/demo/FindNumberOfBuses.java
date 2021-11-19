@@ -30,8 +30,8 @@ public class FindNumberOfBuses {
     //Launch the URL and maximize
     driver.get("https://www.redbus.com/");
 
-    // Wait 5 seconds for site to get loaded
-    Thread.sleep(5000);
+    // Wait 10 seconds for site to get loaded
+    Thread.sleep(10000);
 
     // Find the element where Source city is to be entered, 
     // populate the city name and select it from the drop down that comes up
@@ -39,11 +39,17 @@ public class FindNumberOfBuses {
     driver.findElementById("src").sendKeys("London");
     driver.findElementByXPath("//*[@id='search']/div/div[1]/div/ul/li[1]/i").click();
 
+    // Wait 2 seconds before filling the next field
+    Thread.sleep(2000);
+
     // Find the element where Destination city is to be entered, 
     // populate the city name and select it from the drop down that comes up
     driver.findElementById("dest").clear();
     driver.findElementById("dest").sendKeys("Birmingham");
     driver.findElementByXPath("//*[@id='search']/div/div[2]/div/ul/li[1]").click();
+
+    // Wait 2 seconds before filling the next field
+    Thread.sleep(2000);
 
     // Find the element where date needs to be entered,
     // select current date from the calendar that comes up 
@@ -54,8 +60,8 @@ public class FindNumberOfBuses {
     // Find the locator of the search button and Click on it
     driver.findElementById("search_btn").click();
 
-    // Sleep for 4 seconds. Needed in case network is slow
-    Thread.sleep(4000);
+    // Sleep for 5 seconds. Needed in case network is slow
+    Thread.sleep(5000);
 
     // Get Number of Buses from the resultant screen and print it
     String numberOfBuses = driver.findElementByXPath("//span[text()='Buses']").getText();
