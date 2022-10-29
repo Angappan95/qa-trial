@@ -21,16 +21,16 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '4.4.3'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.3.0'
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0-alpha-1'
 }
 
-task startScript(type:Exec) {
-    commandLine './selenium-run.sh'
-}
+//task startScript(type:Exec) {
+//    commandLine './selenium-run.sh'
+//}
 
-run.dependsOn startScript
+//run.dependsOn startScript
 
-test.dependsOn startScript
+//test.dependsOn startScript
 
 mainClassName = 'demo.App'
