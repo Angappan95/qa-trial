@@ -7,8 +7,8 @@ import java.net.MalformedURLException;
 
 public class App {
     public void getGreeting() throws InterruptedException, MalformedURLException {
-//        FindNumberOfBuses.runRedbusTest();
-         Whatsapp.runWhatsAppTest();
+        FindNumberOfBuses.runRedbusTest();
+//         Whatsapp.runWhatsAppTest();
     }
 
     public static void main(String[] args) throws InterruptedException, MalformedURLException {
